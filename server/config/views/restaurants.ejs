@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Restaurants </title>
+        <link rel="icon" type="image/png" href="/images/cloud.png" > 
+        <link rel="stylesheet" href="/styles.css">
+        <script defer src="/scripts/header.js"></script>
+    </head>   
+    <body>
+        <header></header>
+         <nav></nav>
+         <div class="restaurant-list">
+            <% restaurants.forEach(function(restaurant) { %>  
+                <div class="restaurant-card" data-id="<%= restaurant.id %>">
+                    <a href="/restaurants/<%= restaurant.id %>" class="restaurant-link">
+                        <h2><%= restaurant.name %></h2>
+                        <p><strong>Address:</strong> <%= restaurant.address %></p>
+                        <img src="<%= restaurant.photo %>" alt="<%= restaurant.name %>" class="restaurantimg">
+                    </a>
+                    <button class="delete-btn" onclick="deleteRestaurantCard(this)">X</button>
+                </div>
+            <% }); %>            
+        </div>
+        
+        <footer>
+        </footer>
+        <script src="/scripts/restaurantCards.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,37 @@
+/* restaurant-details-styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.restaurant-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.restaurant-details h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.restaurant-details p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.restaurant-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: none;
+}

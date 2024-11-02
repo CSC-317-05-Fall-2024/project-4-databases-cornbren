@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= restaurant.name %> - Details</title>
+    <link rel="stylesheet" href="/restaurant-details-styles.css">
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    
+    <div class="restaurant-details">
+        <h1><%= restaurant.name %></h1>
+        <p><strong>Address:</strong> <%= restaurant.address %></p>
+        <p><strong>Phone Number:</strong> <%= restaurant.phone %></p>
+        <img src="<%= restaurant.photo %>" alt="<%= restaurant.name %>" class="restaurant-img">
+        <a href="/restaurants">Back to Restaurant List</a>
+    </div>
+
+    <footer></footer>
+</body>
+</html>
