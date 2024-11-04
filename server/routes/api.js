@@ -9,9 +9,9 @@ router.get('/restaurants', (req, res) => {
 });
 
 //Route for single restaurant
-router.get('/restaurants/:id', (req, res) => {
+router.get('/restaurants/:id', async (req, res) => {
     const id = parseInt(req.params.id, 10);  // Parse the ID from the URL
-    const restaurant = getRestaurant(id);  // Get the restaurant by ID
+    const restaurant = await getRestaurant(id);  // Get the restaurant by ID
 
     if (restaurant) {
         res.json(restaurant);  // Send the restaurant data as JSON
@@ -20,8 +20,7 @@ router.get('/restaurants/:id', (req, res) => {
     }
 });
 
-router.post('/restaurants', (req, res) => {
-    console.log('Request body:', req.body); // Log the request body
+router.post('/restaurants', async (req, res) => {
     const newRestaurant = req.body; // Get the new restaurant data from the request body
     
     // Check if the required fields are present
@@ -30,8 +29,8 @@ router.post('/restaurants', (req, res) => {
     }
 
     try {
-        const createdRestaurant = createRestaurant(newRestaurant); 
-        res.status(201).json(createdRestaurant);
+        const createdRestaurant = await createRestaurant(newRestaurant); 
+        res.status(200).json(createdRestaurant);
     } catch (error) {
         console.error('Error creating restaurant:', error); 
         res.status(500).json({ error: 'Failed to add restaurant' }); 
@@ -39,9 +38,9 @@ router.post('/restaurants', (req, res) => {
 });
 
 
-router.delete('/restaurants/:id', (req, res) => {
+router.delete('/restaurants/:id', async (req, res) => {
     const id = parseInt(req.params.id, 10);
-    const deleted = deleteRestaurant(id);
+    const deleted = await deleteRestaurant(id);
 
     if (deleted) {
         res.status(200).json({message: 'Restaurant with ID ${id} deleted' });

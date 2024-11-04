@@ -112,11 +112,12 @@ header h1 {
 }
 
 .restaurant-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the cards */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
     padding: 20px;
+    justify-items: center;
 }
+
 
 .restaurant-card {
     background-color: white;

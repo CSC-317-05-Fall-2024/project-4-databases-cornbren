@@ -27,9 +27,14 @@ app.get('/attractions', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'attractions.html'));
 });
 
-app.get('/restaurants', (req, res) => {
-    const restaurants = getRestaurants();
-    res.render('restaurants', { restaurants });
+app.get('/restaurants', async (req, res) => {
+    try {
+        const restaurants = await getRestaurants(); // Fetches restaurants from the database
+        res.render('restaurants', { restaurants }); // Passes database data to the EJS template
+    } catch (error) {
+        console.error("Error fetching restaurants:", error.message);
+        res.status(500).send("An error occurred while fetching the restaurant data.");
+    }
 });
 
 // New route for rendering a restaurant's details based on its id
