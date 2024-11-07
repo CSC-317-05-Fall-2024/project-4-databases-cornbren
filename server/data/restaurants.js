@@ -54,4 +54,4 @@ const getReviewsForRestaurant = async (restaurantId) => {
 };
 
 
-export { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant };
+export { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant, getReviewsForRestaurant };
