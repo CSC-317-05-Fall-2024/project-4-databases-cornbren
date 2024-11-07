@@ -41,4 +41,17 @@ const deleteRestaurant = async (id) => {
     }
 };
 
+const getReviewsForRestaurant = async (restaurantId) => {
+    try {
+        const results = await pool.query(
+            'SELECT rating, content FROM reviews WHERE restaurant_id = $1',
+            [restaurantId]
+        );
+        return results.rows;
+    } catch (error) {
+        console.error(error.message);
+    }
+};
+
+
 export { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant };
